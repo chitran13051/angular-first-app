@@ -1,6 +1,12 @@
-<form>
-  <input type="text" placeholder="Filter by city" />
-  <button class="primary" type="button">Search</button>
-  <app-location></app-location>
-  <mat-slide-toggle>Toggle me!</mat-slide-toggle>
-</form>
+<section>
+  <form>
+    <input type="text" placeholder="Filter by city" />
+    <button class="primary" type="button">Search</button>
+  </form>
+</section>
+<section class="result">
+  <app-location
+    *ngFor="let housingLocation of housingLocationList"
+    [housingLocation]="housingLocation"
+  ></app-location>
+</section>
