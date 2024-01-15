@@ -5,8 +5,9 @@
   </form>
 </section>
 <section class="result">
-  <app-location
-    *ngFor="let housingLocation of housingLocationList"
-    [housingLocation]="housingLocation"
-  ></app-location>
+  <mat-grid-list cols="4" gutterSize="16px" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let housingLocation of housingLocationList">
+      <app-location [housingLocation]="housingLocation"></app-location>
+    </mat-grid-tile>
+  </mat-grid-list>
 </section>

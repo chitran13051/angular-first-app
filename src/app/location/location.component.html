@@ -1,12 +1,25 @@
-<section class="listing">
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>{{ housingLocation.name }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ housingLocation.city }}, {{ housingLocation.state }}</mat-card-subtitle
+    >
+  </mat-card-header>
   <img
-    class="listing-photo"
+    mat-card-image
     [src]="housingLocation.photo"
-    alt="{{ housingLocation.name }}"
+    [alt]="housingLocation.name"
   />
-  <h2 class="listing-heading">{{ housingLocation.name }}</h2>
-  <p class="listing-location">
-    {{ housingLocation.city }},{{ housingLocation.state }}
-  </p>
-  <a [routerLink]="['/details', housingLocation.id]">Learn more</a>
-</section>
+  <mat-card-content>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam magni,
+      eum non pariatur molestiae, culpa eveniet tempore beatae fugiat dolores
+      doloribus veniam dicta?
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>
+      <a [routerLink]="['/details', housingLocation.id]">Learn more</a>
+    </button>
+  </mat-card-actions>
+</mat-card>
