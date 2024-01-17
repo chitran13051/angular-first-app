@@ -20,5 +20,29 @@
         <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
       </ul>
     </section>
+    <section>
+      <div [formGroup]="applyForm">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            placeholder="Your First Name"
+            formControlName="firstName"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            placeholder="Your Last Name"
+            formControlName="lastName"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Your Email" formControlName="email" />
+        </mat-form-field>
+      </div>
+    </section>
   </div>
 </article>
