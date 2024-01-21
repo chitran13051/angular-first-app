@@ -20,7 +20,7 @@
         <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
       </ul>
     </section>
-    <section>
+    <!-- <section>
       <div [formGroup]="applyForm">
         <mat-form-field appearance="outline">
           <mat-label>First Name</mat-label>
@@ -43,6 +43,15 @@
           <input matInput placeholder="Your Email" formControlName="email" />
         </mat-form-field>
       </div>
+    </section> -->
+    <section>
+      <strong
+        ><ul>
+          Waiting List
+          <li *ngFor="let name of waitingList">{{ name }}</li>
+        </ul></strong
+      >
+      <app-name (addName1)="addName($event)"></app-name>
     </section>
   </div>
 </article>
