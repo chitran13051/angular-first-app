@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-name',
@@ -9,9 +9,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './name.component.scss',
 })
 export class NameComponent {
-  @Output() addName1: EventEmitter<string> = new EventEmitter();
+  @Output() addName: EventEmitter<string> = new EventEmitter();
 
   submitInput(value: string) {
-    this.addName1.emit(value);
+    this.addName.emit(value);
   }
 }

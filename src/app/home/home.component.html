@@ -4,6 +4,15 @@
     <button class="primary" type="button">Search</button>
   </form>
 </section>
+<div class="container">
+  <h2>Choose Brand Colors:</h2>
+
+  <div class="form-field">
+    <app-color-picker [color]="primary" #primaryColor> </app-color-picker>
+    <mat-label>Primary Color</mat-label>
+    <input matInput #primaryInput name="primary" />
+  </div>
+</div>
 <section class="result">
   <mat-grid-list cols="3" gutterSize="16px" rowHeight="1:1">
     <mat-grid-tile *ngFor="let housingLocation of housingLocationList">
