@@ -115,4 +115,7 @@ export class HousingService {
       (housingLocation) => housingLocation.id === id
     );
   }
+  submit(value: string) {
+    return value;
+  }
 }

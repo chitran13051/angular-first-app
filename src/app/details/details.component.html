@@ -20,30 +20,6 @@
         <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
       </ul>
     </section>
-    <!-- <section>
-      <div [formGroup]="applyForm">
-        <mat-form-field appearance="outline">
-          <mat-label>First Name</mat-label>
-          <input
-            matInput
-            placeholder="Your First Name"
-            formControlName="firstName"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Last Name</mat-label>
-          <input
-            matInput
-            placeholder="Your Last Name"
-            formControlName="lastName"
-          />
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="Your Email" formControlName="email" />
-        </mat-form-field>
-      </div>
-    </section> -->
     <section>
       <strong
         ><ul>
@@ -53,5 +29,50 @@
       >
       <app-name (addName)="addName($event)"></app-name>
     </section>
+    <section class="form-field">
+      <h1>Tell us about you!</h1>
+      <div [formGroup]="applyForm">
+        <div>
+          <input
+            matInput
+            placeholder="Your First Name"
+            formControlName="firstName"
+          />
+        </div>
+        <div>
+          <input
+            matInput
+            placeholder="Your Last Name"
+            formControlName="lastName"
+          />
+        </div>
+        <div>
+          <input matInput placeholder="Your Email" formControlName="email" />
+        </div>
+        <button type="submit" (click)="submit(applyForm.value)">Submit</button>
+        <h2>{{ applyForm.value.firstName }}</h2>
+        <h2>{{ applyForm.value.lastName }}</h2>
+        <h2>{{ applyForm.value.email }}</h2>
+      </div>
+    </section>
   </div>
 </article>
+
+<!-- <div>
+  <form [formGroup]="applyForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="Email"
+        formControlName="email"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-error *ngIf="applyForm.hasError('email')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="applyForm.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error
+  </form>
+</div> -->
