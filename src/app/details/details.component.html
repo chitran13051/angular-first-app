@@ -29,32 +29,23 @@
       >
       <app-name (addName)="addName($event)"></app-name>
     </section>
-    <section class="form-field">
-      <h1>Tell us about you!</h1>
-      <div [formGroup]="applyForm">
-        <div>
-          <input
-            matInput
-            placeholder="Your First Name"
-            formControlName="firstName"
-          />
-        </div>
-        <div>
-          <input
-            matInput
-            placeholder="Your Last Name"
-            formControlName="lastName"
-          />
-        </div>
-        <div>
-          <input matInput placeholder="Your Email" formControlName="email" />
-        </div>
-        <button type="submit" (click)="submit(applyForm.value)">Submit</button>
-        <h2>{{ applyForm.value.firstName }}</h2>
-        <h2>{{ applyForm.value.lastName }}</h2>
-        <h2>{{ applyForm.value.email }}</h2>
-      </div>
-    </section>
+
+    <form [formGroup]="applyForm" class="apply-form">
+      <mat-form-field color="accent">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+    </form>
   </div>
 </article>
 

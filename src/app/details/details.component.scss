@@ -9,6 +9,18 @@ img {
     height: 350px;
 }
 
-.form-field {
-    margin-top: 30px;
+.apply-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+}
+
+.mat-form-field {
+    margin-bottom: 20px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #2196F3;
+    /* Blue color */
 }

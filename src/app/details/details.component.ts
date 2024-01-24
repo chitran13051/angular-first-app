@@ -1,9 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { CommonModule, NgForOf } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from '../housing.service';
 import { HousingLocation } from '../housing-location';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
   NgModel,
@@ -15,16 +16,17 @@ import { MatInputModule } from '@angular/material/input';
 import { NameComponent } from '../name/name.component';
 import { MatCardModule } from '@angular/material/card';
 import { ErrorStateMatcher } from '@angular/material/core';
+
 @Component({
   selector: 'app-details',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     NameComponent,
     MatCardModule,
+    NgForOf,
   ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss',
@@ -33,17 +35,21 @@ export class DetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService: HousingService = inject(HousingService);
   housingLocation: HousingLocation | undefined;
-  applyForm: FormGroup = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    email: new FormControl('', [Validators.required, Validators.email]),
-  });
+
+  applyForm: FormGroup;
   matcher = new ErrorStateMatcher();
   waitingList: string[] = ['Victor', 'Anna', 'Nikita'];
-  constructor() {
-    const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation =
-      this.housingService.getHousingLocationById(housingLocationId);
+  housingLocationId = Number(this.route.snapshot.params['id']);
+
+  constructor(private formbuilder: FormBuilder) {
+    this.housingLocation = this.housingService.getHousingLocationById(
+      this.housingLocationId
+    );
+    this.applyForm = this.formbuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
+    });
   }
 
   addName(value: string) {
